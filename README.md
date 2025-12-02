@@ -1,24 +1,23 @@
-# DonorBD
+# DonorBD - Donation Platform for Bangladesh
 
-A modern donation platform for Bangladesh connecting donors with verified causes. Built with React, Tailwind CSS, and Vite.
+A modern, responsive donation platform connecting donors with verified causes across Bangladesh.
 
 ## Features
 
-- 🌍 **Bilingual Support** - English and Bangla (বাংলা)
+- 🌐 **Bilingual Support** - English and Bangla (বাংলা)
 - 🌙 **Dark Mode** - Toggle between light and dark themes
-- 💝 **Donation Management** - One-time and monthly donations
 - 📱 **Fully Responsive** - Works on all devices
+- 💝 **Donation Management** - Easy donation process with cart system
 - 🎯 **Campaign Tracking** - Real-time progress tracking
-- 👤 **User Dashboard** - Track donations and impact
-- 🔐 **Admin Panel** - Manage campaigns and applications
-- 📊 **Analytics** - View donation statistics
+- 📊 **Dashboard** - User and admin dashboards
+- 🔒 **Secure** - Protected routes and authentication ready
 
 ## Tech Stack
 
-- **React 18** - UI library
-- **React Router** - Navigation
-- **Tailwind CSS** - Styling
+- **React 18** - UI Library
 - **Vite** - Build tool
+- **React Router** - Routing
+- **Tailwind CSS** - Styling
 - **Lucide React** - Icons
 - **React Hot Toast** - Notifications
 
@@ -26,38 +25,56 @@ A modern donation platform for Bangladesh connecting donors with verified causes
 
 ### Prerequisites
 
-- Node.js (v16 or higher)
-- npm or yarn
+- Node.js 16+ and npm
 
 ### Installation
 
-1. Clone the repository:
 ```bash
-git clone https://github.com/MdRakibHossen917/donorbd.git
-cd donorbd
-```
-
-2. Install dependencies:
-```bash
+# Install dependencies
 npm install
-```
 
-3. Start the development server:
-```bash
+# Start development server
 npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-4. Open your browser and visit:
-```
-http://localhost:3000
-```
+## Deployment
 
-## Available Scripts
+### Deploy to Vercel
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
+1. **Install Vercel CLI** (optional):
+   ```bash
+   npm i -g vercel
+   ```
+
+2. **Deploy via Vercel Dashboard**:
+   - Go to [vercel.com](https://vercel.com)
+   - Click "New Project"
+   - Import your Git repository
+   - Vercel will auto-detect Vite settings
+   - Click "Deploy"
+
+3. **Deploy via CLI**:
+   ```bash
+   vercel
+   ```
+
+4. **Environment Variables** (if needed):
+   - Add any required environment variables in Vercel dashboard
+   - Settings → Environment Variables
+
+### Build Configuration
+
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+- **Install Command**: `npm install`
+
+The `vercel.json` file is already configured for SPA routing.
 
 ## Project Structure
 
@@ -65,41 +82,16 @@ http://localhost:3000
 donorbd/
 ├── src/
 │   ├── components/     # Reusable components
-│   ├── context/       # React context providers
-│   ├── data/          # Mock data and translations
-│   ├── layouts/       # Layout components
-│   ├── pages/         # Page components
-│   ├── App.jsx        # Main app component
-│   └── main.jsx       # Entry point
-├── public/            # Static assets
-└── package.json       # Dependencies
+│   ├── context/        # React contexts
+│   ├── data/           # Mock data and translations
+│   ├── layouts/        # Layout components
+│   ├── pages/          # Page components
+│   ├── App.jsx         # Main app component
+│   └── main.jsx        # Entry point
+├── public/             # Static assets
+├── index.html          # HTML template
+└── vercel.json         # Vercel configuration
 ```
-
-## Features in Detail
-
-### Donation System
-- Multiple donation categories (Education, Healthcare, Emergency, etc.)
-- One-time and recurring donations
-- Shopping cart functionality
-- Multiple payment methods (bKash, Nagad, Rocket, Card)
-
-### Campaign Management
-- Browse active campaigns
-- Filter and search campaigns
-- View campaign details
-- Track fundraising progress
-
-### User Features
-- Personal dashboard
-- Donation history
-- Impact tracking
-- Profile management
-
-### Admin Features
-- Campaign management
-- Application review
-- Donation analytics
-- User management
 
 ## Contact
 
@@ -108,17 +100,4 @@ donorbd/
 
 ## License
 
-This project is licensed under the MIT License.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## Author
-
-**Md Rakib Hossen**
-- GitHub: [@MdRakibHossen917](https://github.com/MdRakibHossen917)
-
----
-
-Made with ❤️ for Bangladesh
+Private project - All rights reserved.

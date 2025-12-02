@@ -35,7 +35,7 @@ export const campaignsData = [
     donors: 124,
     urgent: true,
     location: "Sylhet, Bangladesh",
-    image: "/flood-relief.jpg",
+    image: "https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&h=600&fit=crop&q=80",
     createdAt: "2024-01-01"
   },
   {
@@ -49,7 +49,7 @@ export const campaignsData = [
     donors: 89,
     urgent: false,
     location: "Rangpur, Bangladesh",
-    image: "/education.jpg",
+    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop&q=80",
     createdAt: "2024-01-05"
   },
   {
@@ -63,7 +63,7 @@ export const campaignsData = [
     donors: 256,
     urgent: true,
     location: "Dhaka, Bangladesh",
-    image: "/healthcare.jpg",
+    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop&q=80",
     createdAt: "2024-01-10"
   },
   {
@@ -77,7 +77,7 @@ export const campaignsData = [
     donors: 67,
     urgent: false,
     location: "Chittagong, Bangladesh",
-    image: "/orphanage.jpg",
+    image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&h=600&fit=crop&q=80",
     createdAt: "2024-01-15"
   },
   {
@@ -91,7 +91,7 @@ export const campaignsData = [
     donors: 145,
     urgent: false,
     location: "Across Bangladesh",
-    image: "/ramadan.jpg",
+    image: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&h=600&fit=crop&q=80",
     createdAt: "2024-01-20"
   },
   {
@@ -105,7 +105,7 @@ export const campaignsData = [
     donors: 45,
     urgent: false,
     location: "Coastal Areas",
-    image: "/training.jpg",
+    image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&h=600&fit=crop&q=80",
     createdAt: "2024-01-25"
   }
 ]

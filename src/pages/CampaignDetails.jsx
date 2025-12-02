@@ -12,6 +12,21 @@ const CampaignDetails = () => {
   
   const [selectedAmount, setSelectedAmount] = useState('')
   const [customAmount, setCustomAmount] = useState('')
+  const [imageError, setImageError] = useState(false)
+  
+  const getCategoryGradient = (category) => {
+    const gradients = {
+      'Emergency Relief': 'from-red-500 to-orange-500',
+      'Education': 'from-blue-500 to-indigo-500',
+      'Healthcare': 'from-green-500 to-teal-500',
+      'Orphan Support': 'from-purple-500 to-pink-500',
+      'Food & Nutrition': 'from-yellow-500 to-orange-500',
+      'Shelter': 'from-gray-500 to-slate-500',
+      'Livelihood': 'from-cyan-500 to-blue-500',
+      'Environment': 'from-emerald-500 to-green-500'
+    }
+    return gradients[category] || 'from-primary-500 to-secondary-500'
+  }
   
   const campaign = campaigns.find(c => c.id === parseInt(id))
   
@@ -107,10 +122,21 @@ const CampaignDetails = () => {
             </div>
 
             {/* Campaign Image */}
-            <div className="aspect-video bg-gradient-to-r from-primary-500 to-secondary-500 rounded-xl overflow-hidden mb-8">
-              <div className="w-full h-full flex items-center justify-center text-white">
-                <Heart size={64} />
-              </div>
+            <div className="aspect-video rounded-xl overflow-hidden mb-8 relative shadow-lg">
+              {!imageError && campaign.image ? (
+                <img 
+                  src={campaign.image} 
+                  alt={campaign.title}
+                  className="w-full h-full object-cover"
+                  onError={() => setImageError(true)}
+                  loading="lazy"
+                />
+              ) : (
+                <div className={`w-full h-full bg-gradient-to-r ${getCategoryGradient(campaign.category)} flex items-center justify-center text-white`}>
+                  <Heart size={64} className="opacity-80" />
+                </div>
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
             </div>
 
             {/* Progress */}

@@ -86,14 +86,42 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl p-6 sm:p-8 md:p-12 text-white text-center">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">{t('makeDifference')}</h2>
-        <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 opacity-90 px-4">
-          {t('ctaDescription')}
-        </p>
-        <Link to="/donate" className="bg-white text-primary-600 hover:bg-gray-100 font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-lg text-base sm:text-lg inline-flex items-center">
-          {t('startDonating')} <ArrowRight className="ml-2" size={18} />
-        </Link>
+      <section className="relative rounded-2xl overflow-hidden shadow-2xl">
+        {/* Background Image with Overlay */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1600&h=900&fit=crop&q=80')"
+          }}
+        >
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-600/95 via-primary-500/90 to-secondary-500/95"></div>
+          {/* Pattern Overlay */}
+          <div className="absolute inset-0 opacity-10" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}></div>
+        </div>
+        
+        {/* Content */}
+        <div className="relative z-10 p-6 sm:p-8 md:p-12 lg:p-16 text-white text-center">
+          <div className="max-w-3xl mx-auto">
+            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white/20 backdrop-blur-sm rounded-full mb-4 sm:mb-6">
+              <Heart size={32} className="sm:w-10 sm:h-10" />
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 drop-shadow-lg">
+              {t('makeDifference')}
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 opacity-95 px-4 drop-shadow-md">
+              {t('ctaDescription')}
+            </p>
+            <Link 
+              to="/donate" 
+              className="bg-white text-primary-600 hover:bg-gray-50 font-bold py-3 sm:py-4 px-8 sm:px-10 rounded-lg text-base sm:text-lg inline-flex items-center shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+            >
+              {t('startDonating')} <ArrowRight className="ml-2" size={18} />
+            </Link>
+          </div>
+        </div>
       </section>
     </div>
   )
