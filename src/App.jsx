@@ -14,6 +14,7 @@ import Contact from './pages/Contact'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import CampaignDetails from './pages/CampaignDetails'
+import Checkout from './pages/Checkout'
 import ProtectedRoute from './components/ProtectedRoute'
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/donate" element={<Donate />} />
+                <Route path="/checkout" element={<Checkout />} />
                 <Route path="/campaigns" element={<Campaigns />} />
                 <Route path="/campaigns/:id" element={<CampaignDetails />} />
                 <Route path="/apply" element={<Apply />} />

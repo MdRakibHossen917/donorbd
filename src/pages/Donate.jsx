@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useDonation } from '../context/DonationContext'
 import { useLanguage } from '../context/LanguageContext'
 import { Heart, CreditCard, Building2, Users, AlertCircle } from 'lucide-react'
@@ -6,6 +7,7 @@ import { iconMap } from '../data/mockData'
 import toast from 'react-hot-toast'
 
 const Donate = () => {
+  const navigate = useNavigate()
   const { categories, addToCart, cart } = useDonation()
   const { t } = useLanguage()
   
@@ -501,7 +503,10 @@ const Donate = () => {
                 ৳{cart.reduce((sum, item) => sum + item.amount, 0).toLocaleString()}
               </div>
             </div>
-            <button className="btn-secondary w-full mt-4">
+            <button 
+              onClick={() => navigate('/checkout')}
+              className="btn-secondary w-full mt-4"
+            >
               {t('checkoutNow')}
             </button>
           </div>

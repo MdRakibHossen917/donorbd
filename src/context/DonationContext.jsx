@@ -60,6 +60,31 @@ export const DonationProvider = ({ children }) => {
     return newDonation
   }
 
+  const processMultipleDonations = (donationsArray) => {
+    const newDonations = donationsArray.map((donationData, index) => ({
+      ...donationData,
+      id: Date.now() + index,
+      date: new Date().toISOString(),
+      status: 'completed'
+    }))
+    
+    setDonations(prev => [...prev, ...newDonations])
+    
+    // Update campaign raised amounts
+    newDonations.forEach(donation => {
+      if (donation.campaignId) {
+        setCampaigns(prev => prev.map(campaign => 
+          campaign.id === donation.campaignId 
+            ? { ...campaign, raised: campaign.raised + donation.amount }
+            : campaign
+        ))
+      }
+    })
+    
+    clearCart()
+    return newDonations
+  }
+
   const totalRaised = campaigns.reduce((sum, campaign) => sum + campaign.raised, 0)
   const totalDonors = donations.length
 
@@ -70,6 +95,7 @@ export const DonationProvider = ({ children }) => {
       removeFromCart,
       clearCart,
       makeDonation,
+      processMultipleDonations,
       donations,
       campaigns,
       categories,
