@@ -86,7 +86,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="relative rounded-2xl overflow-hidden shadow-2xl">
+      <section className="relative rounded overflow-hidden shadow-2xl">
         {/* Background Image with Overlay */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"

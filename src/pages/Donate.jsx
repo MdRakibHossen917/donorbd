@@ -136,7 +136,7 @@ const Donate = () => {
                   <button
                     type="button"
                     onClick={() => setFormData(prev => ({ ...prev, type: 'one-time' }))}
-                    className={`p-6 border-2 rounded-xl text-left transition-all ${
+                    className={`p-6 border-2 rounded text-left transition-all ${
                       formData.type === 'one-time'
                         ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/20'
                         : 'border-gray-200 dark:border-gray-700 hover:border-primary-300'
@@ -152,7 +152,7 @@ const Donate = () => {
                   <button
                     type="button"
                     onClick={() => setFormData(prev => ({ ...prev, type: 'monthly' }))}
-                    className={`p-6 border-2 rounded-xl text-left transition-all ${
+                    className={`p-6 border-2 rounded text-left transition-all ${
                       formData.type === 'monthly'
                         ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/20'
                         : 'border-gray-200 dark:border-gray-700 hover:border-primary-300'

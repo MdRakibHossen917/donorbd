@@ -50,7 +50,7 @@ const About = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {values.map((value, index) => (
             <div key={index} className="card text-center">
-              <div className="w-16 h-16 mx-auto mb-4 bg-primary-100 dark:bg-primary-900/30 rounded-2xl flex items-center justify-center text-primary-600 dark:text-primary-400">
+              <div className="w-16 h-16 mx-auto mb-4 bg-primary-100 dark:bg-primary-900/30 rounded flex items-center justify-center text-primary-600 dark:text-primary-400">
                 {value.icon}
               </div>
               <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
@@ -78,7 +78,7 @@ const About = () => {
       </div>
 
       {/* Stats */}
-      <div className="bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl p-6 sm:p-8 md:p-12 text-white">
+      <div className="bg-gradient-to-r from-primary-500 to-secondary-500 rounded p-6 sm:p-8 md:p-12 text-white">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 text-center">
           <div>
             <div className="text-4xl font-bold mb-2">50K+</div>

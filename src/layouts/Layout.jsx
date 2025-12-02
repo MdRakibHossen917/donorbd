@@ -7,6 +7,7 @@ import {
   Home, Heart, Globe, Moon, Sun, Menu, X, 
   User, Bell, Search, LogOut, Shield
 } from 'lucide-react'
+import Logo from '../components/Logo'
 import toast from 'react-hot-toast'
 
 const Layout = ({ children }) => {
@@ -32,56 +33,43 @@ const Layout = ({ children }) => {
       {/* Navigation */}
       <nav className="bg-white dark:bg-gray-800 shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex items-center">
-              <Link to="/" className="flex items-center space-x-2">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
-                  <Heart className="text-white" size={20} />
-                </div>
-                <div className="hidden sm:block">
-                  <h1 className="text-xl sm:text-2xl font-bold text-primary-600 dark:text-primary-400">
-                    Donor<span className="text-secondary-500">BD</span>
-                  </h1>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 -mt-1">
-                    {t('tagline')}
-                  </p>
-                </div>
-                <div className="sm:hidden">
-                  <h1 className="text-lg font-bold text-primary-600 dark:text-primary-400">
-                    Donor<span className="text-secondary-500">BD</span>
-                  </h1>
-                </div>
-              </Link>
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <div className="flex items-center flex-shrink-0">
+              <Logo />
             </div>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`flex items-center space-x-1 px-3 py-2 rounded-lg transition-all ${
-                    isActive(link.path)
-                      ? 'bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400'
-                      : 'text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
-                  }`}
-                >
-                  {link.icon}
-                  <span>{link.label}</span>
-                </Link>
-              ))}
+            {/* Desktop Navigation - Centered */}
+            <div className="hidden md:flex items-center justify-center flex-1 px-4 lg:px-8">
+              <div className="flex items-center space-x-0.5 lg:space-x-1">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className={`flex items-center space-x-1.5 px-2 lg:px-4 py-2 rounded transition-all ${
+                      isActive(link.path)
+                        ? 'bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400'
+                        : 'text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-700/50'
+                    }`}
+                  >
+                    <span className="flex-shrink-0">{link.icon}</span>
+                    <span className="hidden lg:inline whitespace-nowrap text-sm font-medium">{link.label}</span>
+                  </Link>
+                ))}
+              </div>
             </div>
 
-            <div className="flex items-center space-x-2 sm:space-x-4">
+            {/* Right Side Actions */}
+            <div className="flex items-center justify-end space-x-1 sm:space-x-2">
               {/* Cart Badge */}
               <Link
                 to="/donate"
-                className="relative p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"
+                className="relative flex items-center justify-center w-9 h-9 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
                 title={t('donate')}
               >
-                <Heart size={18} className="sm:w-5 sm:h-5" />
+                <Heart size={18} className="w-5 h-5" />
                 {cart.length > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-secondary-500 text-white text-xs w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center text-[10px] sm:text-xs">
+                  <span className="absolute -top-1 -right-1 bg-secondary-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-semibold">
                     {cart.length}
                   </span>
                 )}
@@ -90,36 +78,36 @@ const Layout = ({ children }) => {
               {/* Language Toggle */}
               <button
                 onClick={toggleLanguage}
-                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm sm:text-base"
+                className="flex items-center justify-center w-9 h-9 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
                 title={language === 'en' ? 'Switch to Bangla' : 'ইংরেজিতে পরিবর্তন করুন'}
               >
-                <span className="font-bold text-xs sm:text-sm">{language === 'en' ? 'বাংলা' : 'EN'}</span>
+                <span className="font-bold text-sm">{language === 'en' ? 'বাংলা' : 'EN'}</span>
               </button>
 
               {/* Theme Toggle */}
               <button
                 onClick={toggleTheme}
-                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"
+                className="flex items-center justify-center w-9 h-9 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
                 title={isDark ? 'Light Mode' : 'Dark Mode'}
               >
-                {isDark ? <Sun size={18} className="sm:w-5 sm:h-5" /> : <Moon size={18} className="sm:w-5 sm:h-5" />}
+                {isDark ? <Sun size={18} className="w-5 h-5" /> : <Moon size={18} className="w-5 h-5" />}
               </button>
 
               {/* User Menu */}
-              <div className="relative hidden sm:block">
+              <div className="hidden sm:flex items-center">
                 <Link
                   to="/dashboard"
-                  className="flex items-center space-x-2 p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"
+                  className="flex items-center space-x-1.5 px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
                 >
-                  <User size={18} className="sm:w-5 sm:h-5" />
-                  <span className="hidden md:inline text-sm">{t('dashboard')}</span>
+                  <User size={18} className="w-5 h-5" />
+                  <span className="hidden lg:inline text-sm font-medium">{t('dashboard')}</span>
                 </Link>
               </div>
 
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="sm:hidden p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"
+                className="md:hidden flex items-center justify-center w-9 h-9 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
                 aria-label="Menu"
               >
                 {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -130,20 +118,20 @@ const Layout = ({ children }) => {
           {/* Mobile Menu */}
           {isMenuOpen && (
             <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700">
-              <div className="flex flex-col space-y-2">
+              <div className="flex flex-col space-y-1">
                 {navLinks.map((link) => (
                   <Link
                     key={link.path}
                     to={link.path}
                     onClick={() => setIsMenuOpen(false)}
-                    className={`flex items-center space-x-2 px-4 py-3 rounded-lg ${
+                    className={`flex items-center space-x-3 px-4 py-3 rounded transition-colors ${
                       isActive(link.path)
                         ? 'bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400'
                         : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                     }`}
                   >
-                    {link.icon}
-                    <span>{link.label}</span>
+                    <span className="flex-shrink-0">{link.icon}</span>
+                    <span className="font-medium">{link.label}</span>
                   </Link>
                 ))}
               </div>
@@ -162,15 +150,8 @@ const Layout = ({ children }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
-                  <Heart className="text-white" size={18} />
-                </div>
-                <h2 className="text-xl font-bold text-primary-600 dark:text-primary-400">
-                  Donor<span className="text-secondary-500">BD</span>
-                </h2>
-              </div>
-              <p className="text-gray-600 dark:text-gray-400">
+              <Logo className="mb-4" size="small" showTagline={false} />
+              <p className="text-gray-600 dark:text-gray-400 mt-2 text-sm">
                 {t('footerDescription')}
               </p>
             </div>

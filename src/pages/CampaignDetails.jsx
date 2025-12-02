@@ -122,7 +122,7 @@ const CampaignDetails = () => {
             </div>
 
             {/* Campaign Image */}
-            <div className="aspect-video rounded-xl overflow-hidden mb-8 relative shadow-lg">
+            <div className="aspect-video rounded overflow-hidden mb-8 relative shadow-lg">
               {!imageError && campaign.image ? (
                 <img 
                   src={campaign.image} 
